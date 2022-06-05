@@ -3,6 +3,51 @@ body {
     font-size: 16px;
     line-height: 1.4;
     color: #33333f;
+    background: #e6f2ff;
+}
+
+#content {
+    display: grid;
+    column-gap: 15px;
+    row-gap: 5px;
+    max-width: initial;
+}
+
+#content header {
+    grid-column: span 2;
+}
+
+#table-of-contents {
+    grid-column: 1;
+    background: #fff3e8;
+    overflow-y: clip;
+}
+
+#content div.outline-2 {
+    grid-column: 2;
+    background: #f8f8f8;
+}
+
+#meta {
+    margin-top: 2em;
+}
+
+#content #footnotes {
+    grid-column: span 2;
+}
+
+@media screen {
+    #content {
+        grid-template-columns: 1fr 3fr;
+        column-gap: 15px;
+        row-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #content {
+        grid-template-columns: 240px auto;
+    }
 }
 
 code {
@@ -48,9 +93,9 @@ td code {
 }
 
 a:link, a:hover, a:visited {
-                     text-decoration: none;
-                     color: black;
-                 }
+    text-decoration: none;
+    color: black;
+}
 
 a:link {
     background: #ff8;
@@ -85,19 +130,12 @@ a[href^="http"]:after {
     padding-left: 0.2em;
 }
 
-#meta {
-    margin-top: 2em;
-}
-
 #table-of-contents a:link,
 #table-of-contents a:visited {
     color: black;
     background: transparent;
 }
 
-#table-of-contents {
-    line-height: 1.2;
-}
 #table-of-contents h2 {
     border-bottom: 0;
 }
@@ -144,7 +182,11 @@ tbody tr:nth-child(odd) {
 }
 
 img {
-    max-width: 90%;
+    width: inherit;
+}
+
+img.org-svg {
+    width: inherit;
 }
 
 div.notice {
@@ -362,33 +404,15 @@ div.figure {
         margin-top: 1em;
     }
 
-    #table-of-contents {
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 2em 0 2em 2em;
-        width: 20%;
-        height: 100vh;
-        font-size: 11px;
-        background: #eee;
-        overflow: auto;
-    }
-
-    #table-of-contents ul>li>ul>li>ul>li {
-        display: none;
-    }
-
-    #table-of-contents h2 {
-        margin-top: 0;
-    }
-
     #table-of-contents code {
         font-size: 12px;
     }
 
+    /*
     div.outline-2, #footnotes {
         width: 80%;
     }
+     */
 }
 
 @media screen and (max-width: 1024px) {
