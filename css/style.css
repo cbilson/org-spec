@@ -1,13 +1,11 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.4;
+    /* line-height: 1.4; */
     color: #33333f;
 }
 
-h1, h2, h3 {
-    font-family: Helvetica, Arial, sans-serif;
-}
+h1, h2, h3 {font-family: Helvetica, Arial, sans-serif;}
 
 h2 {
     border-bottom: 1px solid #f0c;
@@ -15,27 +13,13 @@ h2 {
     font-size: 1.75em;
 }
 
-h3 {
-    margin-top: 2em;
-    font-size: 1.5em;
-}
-
-h4 {
-    font-size: 1.25em;
-}
-
-h5 {
-    font-size: 1em;
-}
+h3 {margin-top: 2em; font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+h5 {font-size: 1em;}
 
 h2 code, h3 code, h4 code, h5 code {
     font-family: inherit !important;
     font-size: inherit !important;
-}
-
-#content {
-    max-width: 90em;
-    margin: auto;
 }
 
 code {
@@ -59,61 +43,67 @@ blockquote {
     font-style: italic;
 }
 
-a:link, a:hover, a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-a:link {
-    background: #ff8;
-}
-
-a:visited {
-    color: #666;
-    background: #ffc;
-}
-
-a:link:hover,
-a:visited:hover {
-    background: #ff0;
-}
-
-a[href^="http"] {
-    background: #bff;
-}
-
-a[href^="http"]:visited {
-    background: #dff;
-}
-
-a[href^="http"]:link:hover,
-a[href^="http"]:visited:hover {
-    background: #0ff;
-}
-
+/*================================================================================
+   Anchors
+   ================================================================================*/
+a:link, a:hover, a:visited {text-decoration: none; color: black;}
+a:link {background: #ff8;}
+a:visited {color: #666; background: #ffc;}
+a:link:hover, a:visited:hover {background: #ff0;}
+a[href^="http"] {background: #bff;}
+a[href^="http"]:visited {background: #dff;}
+a[href^="http"]:link:hover, a[href^="http"]:visited:hover {background: #0ff;}
 a[href^="http"]:after {
     content: "\21B3";
     background: white;
     padding-left: 0.2em;
 }
 
-#meta {
-    margin-top: 2em;
+/*================================================================================
+   Content Layout
+   ================================================================================*/
+#content {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(2em, 1fr));
+    grid-template-columns: 400px 1fr;
 }
 
-#table-of-contents a:link,
-#table-of-contents a:visited {
-    color: black;
+#meta {margin-top: 2em;}
+
+/*================================================================================
+   Title, header
+   ================================================================================*/
+#content header {
+    font-size: large;
+    background: cobalt;
+    width: 100vw;
+    margin: 0;
+    padding: 0.5em;
+    grid-area: 1 / 1 / 1 / -1;
+}
+
+/*================================================================================
+   Table of contents
+   ================================================================================*/
+#content nav {
+    background: #eee;
+    line-height: 1.2;
+    padding: 1em 0 1em 1em;
+    grid-column: 1;
+    grid-row: 2 / -1;
+}
+
+#table-of-contents a:link, #table-of-contents a:visited {
     background: transparent;
 }
 
-#table-of-contents {
-    line-height: 1.2;
-}
-#table-of-contents h2 {
-    border-bottom: 0;
-}
+#table-of-contents a:hover {text-decoration: underline;}
 
+
+#table-of-contents .todo, #table-of-contents .done {font-size: 80%;}
+#table-of-contents h2 {border-bottom: 0;}
+
+/* Menu */
 #table-of-contents ul {
     list-style: none;
     padding-left:0;
@@ -125,39 +115,37 @@ a[href^="http"]:after {
     font-weight: bold;
 }
 
-#table-of-contents .tag {
-    display: none;
+#table-of-contents div>ul>li>ul>li {margin-left: 0.5em;}
+#table-of-contents div>ul>li>ul>li>ul>li {margin-left: 1em;; font-size: smaller}
+#table-of-contents div>ul>li>ul>li>ul>li>ul>li {margin-left: 1.5em; font-size: x-small;}
+#table-of-contents div>ul>li>ul>li>ul>li>ul>li>ul>li {margin-left: 2em;}
+
+#table-of-contents .tag {display: none;}
+#table-of-contents ol>li {margin-top: 1em;}
+
+/*================================================================================
+   Content
+   ================================================================================*/
+.outline-2 {
+    grid-column: 2;
+    margin-left: 1em;
 }
 
-#table-of-contents .todo,
-#table-of-contents .done {
-    font-size: 80%;
-}
+/* .outline-2, #footnotes {width: 80%;} */
 
-#table-of-contents ol>li {
-    margin-top: 1em;
-}
-
-table {
-    width: 100%;
-}
-
-table, th, td {
-    border: 1px solid #666;
-}
+/*================================================================================
+   Tables
+   ================================================================================*/
+table {width: 100%;}
+table, th, td {border: 1px solid #666;}
 
 th, td {
     padding: 0.5em;
     text-align: left;
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #eee;
-}
-
-img {
-    max-width: 90%;
-}
+tbody tr:nth-child(odd) {background-color: #eee;}
+img {max-width: 90%;}
 
 div.notice {
     position: relative;
@@ -166,9 +154,7 @@ div.notice {
     border-left: 4px solid;
 }
 
-table + div.notice {
-    margin-top: 2em;
-}
+table + div.notice {margin-top: 2em;}
 
 div.notice a {
     background: transparent !important;
@@ -365,42 +351,12 @@ div.figure {
 }
 
 @media screen {
-    h1.title {
-        text-align: left;
-        margin-bottom: 1em;
-    }
+    /* h1.title {
+       text-align: left;
+       margin-bottom: 1em;
+       } */
 
-    h2 {
-        margin-top: 1em;
-    }
-
-    #table-of-contents {
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 2em 0 2em 2em;
-        width: 20%;
-        height: 100vh;
-        font-size: 11px;
-        background: #eee;
-        overflow: auto;
-    }
-
-    #table-of-contents ul>li>ul>li>ul>li {
-        display: none;
-    }
-
-    #table-of-contents h2 {
-        margin-top: 0;
-    }
-
-    #table-of-contents code {
-        font-size: 12px;
-    }
-
-    div.outline-2, #footnotes {
-        width: 80%;
-    }
+    h2 {margin-top: 1em;}
 }
 
 @media screen and (max-width: 1024px) {
