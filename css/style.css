@@ -131,6 +131,12 @@ a[href^="http"]:after {
     margin-left: 1em;
 }
 
+/* Special case for exporting a single heading. */
+.content > ul.org-ul {
+    grid-area: 2 / 1 / -1 / -1;
+    margin-left: 1em;
+}
+
 /* .outline-2, #footnotes {width: 80%;} */
 
 /*================================================================================
