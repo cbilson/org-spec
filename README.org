@@ -7,7 +7,7 @@ publishing
 
 - Specification document skeleton for a web application, incl. usage
   examples of various org-mode features:
-  - Inline, text-based diagramming via [[http://ditaa.sourceforge.net][Ditaa]], [[http://graphviz.org][Graphviz]] & [[http://plantuml.com/][PlantUML]]
+  - Inline, text-based diagramMing via [[http://ditaa.sourceforge.net][Ditaa]], [[http://graphviz.org][Graphviz]] & [[http://plantuml.com/][PlantUML]]
   - Hyperlink abbreviations (incl. presets for GitHub, RFC, W3C, Wikipedia)
   - Section status flags, tags & custom properties
   - Tables
@@ -53,7 +53,7 @@ AWS S3, like so:
         put . s3://BUCKETNAME
 #+END_SRC
 
-* Diagramming & exporting
+* DiagramMing & exporting
 
 The template heavily utilizes Org-mode's =noweb= references to
 assemble diagrams from individual snippets, as well as to provide
